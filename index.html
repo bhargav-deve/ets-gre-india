@@ -443,52 +443,25 @@
   Ask me anything about GRE in India — fees, registration, scores, and more.
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     SALESFORCE EMBEDDED MESSAGING — GRE INDIA
-     Replace the placeholder below with the actual snippet from:
-     Setup → Embedded Service Deployments → GRE_India_Web_Deployment
-     → Get Code Snippet
-     ═══════════════════════════════════════════════════════════════ -->
-<script>
-  // ─────────────────────────────────────────────────────────────
-  // PASTE YOUR GRE INDIA EMBEDDED MESSAGING SNIPPET HERE
-  // From Setup → Embedded Service Deployments
-  //           → GRE_India_Web_Deployment → Get Code Snippet
-  //
-  // It will look like:
-  //
-  // embeddedservice_bootstrap.settings.language = 'en_US';
-  // (function() {
-  //   var s = document.createElement('script');
-  //   s.src = 'https://YOUR_ORG.my.salesforce.com/embeddedservice/...';
-  //   document.head.appendChild(s);
-  // })();
-  //
-  // The siteContext = "GRE India" is already set via the Custom
-  // Parameter on the GRE India Agent messaging channel.
-  // ─────────────────────────────────────────────────────────────
-  console.log('[GRE India Site] Salesforce Embedded Messaging snippet goes here.');
-</script>
+<!-- SALESFORCE EMBEDDED MESSAGING — GRE INDIA -->
 <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-			embeddedservice_bootstrap.init(
-				'00Dfj00000JAs11',
-				'GRE_India_Agent',
-				'https://orgfarm-1a81640d49-dev-ed.develop.my.site.com/ESWGREIndiaAgent1780565987850',
-				{
-					scrt2URL: 'https://orgfarm-1a81640d49-dev-ed.develop.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
+  function initEmbeddedMessaging() {
+    try {
+      embeddedservice_bootstrap.settings.language = 'en_US';
+      embeddedservice_bootstrap.init(
+        '00Dfj00000JAs11',
+        'GRE_India_Agent',
+        'https://orgfarm-1a81640d49-dev-ed.develop.my.site.com/ESWGREIndiaAgent1780565987850',
+        {
+          scrt2URL: 'https://orgfarm-1a81640d49-dev-ed.develop.my.salesforce-scrt.com'
+        }
+      );
+    } catch (err) {
+      console.error('Error loading Embedded Messaging: ', err);
+    }
+  };
 </script>
 <script type='text/javascript' src='https://orgfarm-1a81640d49-dev-ed.develop.my.site.com/ESWGREIndiaAgent1780565987850/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
 
 </body>
 </html>
