@@ -443,6 +443,16 @@
   function initEmbeddedMessaging() {
     try {
       embeddedservice_bootstrap.settings.language = 'en_US';
+
+      // Step 1 — Listen for API ready event BEFORE calling init()
+      // Then set the hidden pre-chat field once the API is ready
+      addEventListener('onEmbeddedMessagingReady', () => {
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+          "siteContext": "GRE India"
+        });
+      });
+
+      // Step 2 — Initialize the Embedded Messaging widget
       embeddedservice_bootstrap.init(
         '00Dfj00000JAs11',
         'GRE_India_Agent',
@@ -456,7 +466,9 @@
     }
   };
 </script>
-<script type='text/javascript' src='https://orgfarm-1a81640d49-dev-ed.develop.my.site.com/ESWGREIndiaAgent1780565987850/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
+<script type='text/javascript'
+  src='https://orgfarm-1a81640d49-dev-ed.develop.my.site.com/ESWGREIndiaAgent1780565987850/assets/js/bootstrap.min.js'
+  onload='initEmbeddedMessaging()'>
+</script>
 </body>
 </html>
